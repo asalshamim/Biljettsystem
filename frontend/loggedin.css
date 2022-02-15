@@ -1,0 +1,139 @@
+body {
+  margin: 0;
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  background-color: slategray;
+}
+
+#container {
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-color: #F39440;
+}
+
+
+.logo {
+  position: absolute;
+  width: 200px;
+  height: 69px;
+  left: 100px;
+  top: 53px;
+}
+
+.staff-h1 {
+  position: absolute;
+  width: 200px;
+  height: 52px;
+  left: 28px;
+  top: 195px;
+  font-family: Sansita One;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 27px;
+  line-height: 23px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #000000;
+
+  color: #000000;
+}
+.staff-h2 {
+ 
+position: absolute;
+width: 200px;
+height: 35px;
+left: 111px;
+top: 308px;
+
+font-family: Fira Sans;
+font-style: normal;
+font-weight: normal;
+font-size: 23px;
+line-height: 26px;
+
+align-items: center;
+text-align: center;
+letter-spacing: 0.3em;
+
+color: rgba(0, 0, 0, 0.8);
+}
+
+.staff-forminput button {
+  position: absolute;
+  width: 310px;
+  height: 63px;
+  left: 41px;
+  
+  border: 2px solid #231F42;
+  box-sizing: border-box;
+  border-radius: 3px;
+}
+.form-input{
+  display: flex;
+  justify-content: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 30px;
+}
+
+#username, #password, #ticketNumber{
+  position: relative;
+  top: 400px;
+  left: 40px;
+  border: 2px solid #231F42;
+  background-color: #F39440;
+  width: 310px;
+  height: 60px;
+  text-align: center;
+  margin-bottom: 30px;
+  font-family: Fira Mono;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 22px;
+  letter-spacing: 0.3em;
+
+   
+}
+
+
+#loginbutt{
+  position: relative;
+  top: 437px;
+  left: 0px;
+  padding: 0;
+  margin: 0;
+  border: 2px solid #231F42;
+  background-color: #231F42;
+  color: #ffffff;
+  width: 310px;
+  height: 60px;
+  font-family: Fira Sans;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 26px;
+}
+
+#verifybutt{
+position: absolute;
+width: 310px;
+height: 60px;
+left: 40px;
+top: 500px;
+color: #ffffff;
+
+background: #231F42;
+border-radius: 0px 0px 3px 3px;
+font-family: Fira Sans;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 26px;
+}
+

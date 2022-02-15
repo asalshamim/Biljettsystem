@@ -1,5 +1,5 @@
 {
-  "name": "biljettsystem",
+  "name": "backend",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -10,9 +10,11 @@
   "author": "Asal Shamim",
   "license": "ISC",
   "dependencies": {
-    "bcrypt": "^5.0.1",
-    "body-parser": "^1.19.1",
+    "bcryptjs": "^2.4.3",
     "cookie-parser": "^1.4.6",
-    "express": "^4.17.2"
+    "express": "^4.17.2",
+    "jsonwebtoken": "^8.5.1",
+    "nedb-promise": "^2.0.1",
+    "nodemon": "^2.0.15"
   }
 }

@@ -1,29 +1,60 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="CSS/Style.css" type="text/css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono|Sansita+One|Fira+Sans&display=swap">
-    <title> Where its @ </title>
+  <link href='http://fonts.googleapis.com/css?family=Sansita+One' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Fira+Sans' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Barcode+128&display=swap" rel="stylesheet" type='text/css'>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="ticket.css" />
+  <title>Ticket</title>
 </head>
 
 <body>
-    <div class="wrapper1">
-        <section class = "ticket">
-                <div class = "theTicket"></div>
-        
-         </section>
-         <button class = "loginPageButton"><a href="index.html">Home</a></button>
+
+  <div id="container">
+
+    <div id="ticket">
+
+      <div id="titleDiv">
+        <h5>WHAT</h5>
+        <h1 id="title"></h1>
+      </div>
+
+      <div id="locationDiv">
+        <h5>WHERE</h5>
+        <p id="location"></p>
+      </div>
+
+      <div id="dateTimeDiv">
+
+        <div id="dateDiv">
+          <h5>WHEN</h5>
+          <p id="date"></p>
+        </div>
+
+        <div id="fromDiv">
+          <h5>FROM</h5>
+          <p id="timeFrom"></p>
+        </div>
+
+        <div id="toDiv">
+          <h5>TO</h5>
+          <p id="timeTo"></p>
+        </div>
+
+      </div>
+
+      <div id="barcodeDiv">
+        <p id="barcode">A2ED7</p>
+        <p id="ticketId"></p>
+      </div>
 
     </div>
 
+  </div>
 
-    <!--Javascript-->
-    <script src="" type="module"></script>
-    
 </body>
+<script src="ticket.js"></script>
 
-</html>  
+</html>
