@@ -8,7 +8,7 @@ function saveToken(token) {
 
 async function login(loginInformation) {
   console.log(loginInformation);
-  const response = await fetch('http://localhost:8000/staff/login', {
+  const response = await fetch('http://localhost:8000/api/login', {
     method: 'POST',
     body: JSON.stringify(loginInformation),
     headers: {
@@ -25,7 +25,7 @@ async function login(loginInformation) {
 }
 
 async function createAccount(credentials) {
-  const response = await fetch('http://localhost:8000/staff/create', {
+  const response = await fetch('http://localhost:8000/api/create', {
     method: 'POST',
     body: JSON.stringify(credentials),
     headers: {
@@ -35,8 +35,6 @@ async function createAccount(credentials) {
   const data = await response.json();
 }
 
-
-
 loginButton.addEventListener('click', () => {
   let loginInformation = {
     username: usernameElem.value,
@@ -44,5 +42,3 @@ loginButton.addEventListener('click', () => {
   }
   login(loginInformation);
 });
-
-

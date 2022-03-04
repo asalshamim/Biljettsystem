@@ -1,7 +1,7 @@
 const loginButton = document.getElementById('Login-btn');
 const consertsDiv = document.getElementById('conserts-div')
 
-function showConsterts(conserts ) {
+function showConsterts(conserts) {
   conserts.forEach((consert, index) => {
     const eventElemDiv = document.createElement('div');
     eventElemDiv.setAttribute('class', "eventDiv");
@@ -50,13 +50,13 @@ function showConsterts(conserts ) {
 }
 
 async function getConsterts() {
-  const response = await fetch('http://localhost:8000/staff/get-conserts');
+  const response = await fetch('http://localhost:8000/api/get-conserts');
   const data = await response.json();
   showConsterts(data.conserts.conserts);
 }
 
 async function buyTicket(ticket) {
-  const response = await fetch('http://localhost:8000/staff/create-ticket', {
+  const response = await fetch('http://localhost:8000/api/create-ticket', {
     method: 'POST',
     body: JSON.stringify(ticket),
     headers: {

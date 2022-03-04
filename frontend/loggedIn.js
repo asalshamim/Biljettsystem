@@ -1,94 +1,50 @@
-const nameElem = document.querySelector('#ticketNumber');
-const emailElem = document.querySelector('#verifybutt');
+const ticketIdInput = document.getElementById('ticket-id');
+const verifyBtn = document.getElementById('verify-ticket');
+const textElem = document.getElementById('verify-p');
 
+async function checkToken() {
+  const token = sessionStorage.getItem('token');
+  const response = await fetch('http://localhost:8000/api/cheack-token', {
+    method: 'GET',
+    headers: {
+      'Authorization': `Bearer ${token}`
+    }
+  });
+  const data = await response.json();
 
-
-async function changePassword(pass) {
-  let obj = {
-    password: pass
+  if (data.success) {
+    ticketIdInput.style.display = "inline-block";
+    verifyBtn.style.display = "inline-block";
+  } else {
+    window.location.href = 'http://localhost:8000/index.html';
   }
 
-  const response = await fetch('http://localhost:8000/staff/user/change', {
+}
+
+async function checkTicket(ticketId) {
+  const response = await fetch('http://localhost:8000/api/check-ticket', {
     method: 'POST',
-    body: JSON.stringify(obj),
+    body: JSON.stringify(ticketId),
     headers: {
       'Content-Type': 'application/json'
     }
   });
+
   const data = await response.json();
-  console.log(data);
-}
-
-async function removeAccount() {
-  const response = await fetch('http://localhost:8000/staff/user/remove', {
-    method: 'DELETE'
-  });
-  const data = await response.json();
-  console.log(data);
-}
-
-function createForm() {
-  const inputElem = document.createElement('input');
-  inputElem.setAttribute('type', 'password');
-
-  const buttonElem = document.createElement('button');
-  buttonElem.setAttribute('id', 'changeButton');
-  buttonElem.innerHTML = 'Byt lösenord';
-
-  buttonElem.addEventListener('click', () => {
-    console.log(inputElem.value);
-    changePassword(inputElem.value);
-  });
-
-  formElem.append(inputElem);
-  formElem.append(buttonElem);
-}
-
-function createRemoveButton() {
-  const buttonElem = document.createElement('button');
-  buttonElem.innerHTML = 'Ta bort mitt konto';
-
-  buttonElem.addEventListener('click', () => {
-    removeAccount();
-  });
-
-  bodyElem.append(buttonElem);
-}
-
-
-async function getAllUsers() {
-  const response = await fetch('http://localhost:8000/staff/user/all');
-  const data = await response.json();
-
-  console.log(data);
-}
-
-async function getUserInfo() {
-  const response = await fetch('http://localhost:8000/staff/user');
-  const data = await response.json();
-
-  console.log(data);
-  nameElem.innerHTML = `${data.user.firstname} ${data.user.lastname}`;
-  emailElem.innerHTML = data.user.email;
-
-  if (data.user.role === 'admin') {
-    getAllUsers();
-    createForm();
-  } else if (data.user.role === 'user') {
-    createRemoveButton();
+  if (data.success) {
+    textElem.innerHTML = "Ticket is validated";
+  } else if (data.used) {
+    textElem.innerHTML = "Ticket already verified";
+  } else if (data.exists === false) {
+    textElem.innerHTML = "ticket dose not exists"
   }
 }
 
-async function isLoggedIn() {
-  const response = await fetch('http://localhost:8000/staff/check-ticket');
-  const data = await response.json();
 
-  if (data.loggedIn) {
-    getUserInfo();
-  } else {
-    location.href = 'http://localhost:8000/';
+verifyBtn.addEventListener('click', () => {
+  const ticketId = {
+    id: ticketIdInput.value
   }
-}
-
-isLoggedIn();
-
+  checkTicket(ticketId);
+})
+checkToken();

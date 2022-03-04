@@ -21,8 +21,9 @@ const {
   comparePassword
 } = require('./utils/bcrypt');
 
-
+app.use(express.static(__dirname +'/public'));
 app.use(express.static('../frontend'));
+
 app.use(express.json());
 app.use(cookieParser());
 
@@ -36,17 +37,16 @@ async function cheackConstertList() {
 
 cheackConstertList();
 
-app.post('/staff/create-ticket', async (request, response) => {
+app.post('/api/create-ticket', async (request, response) => {
   const ticketInformation = request.body
   const resObj = {
     success: true,
     soldOut: false
   }
-
+ 
 
   var ticketId = await newTicketId();
-  
-
+ 
   ticketInformation.id = ticketId;
   createTicket(ticketInformation);
 
@@ -59,7 +59,7 @@ app.post('/staff/create-ticket', async (request, response) => {
   response.json(resObj);
 });
 
-app.get("/staff/ticket", async (request, response) => {
+app.get("/api/ticket", async (request, response) => {
   const cookie = request.cookies.ticketCookie;
   let resObj = {
     title: "",
@@ -86,7 +86,7 @@ app.get("/staff/ticket", async (request, response) => {
 });
 
 
-app.post('/staff/create', async (request, response) => {
+app.post('/api/create', async (request, response) => {
   const credentials = request.body;
   const resObj = {
     success: true
@@ -99,7 +99,7 @@ app.post('/staff/create', async (request, response) => {
   response.json(resObj);
 });
 
-app.post('/staff/login', async (request, response) => {
+app.post('/api/login', async (request, response) => {
   const credentials = request.body;
   const resObj = {
     success: false,
@@ -121,7 +121,7 @@ app.post('/staff/login', async (request, response) => {
   response.json(resObj);
 });
 
-app.get('/staff/cheack-token', async (request, response) => {
+app.get('/api/cheack-token', async (request, response) => {
     const token = request.headers.authorization.replace('Bearer ', '');
     const resObj = {
         success: false,
@@ -137,7 +137,7 @@ app.get('/staff/cheack-token', async (request, response) => {
     response.json(resObj);
 });
 
-app.post('/staff/check-ticket', async (request, response) => {
+app.post('/api/check-ticket', async (request, response) => {
   const ticketId = request.body;
   const resObj = {
     success: false,
@@ -147,27 +147,27 @@ app.post('/staff/check-ticket', async (request, response) => {
 
   const ticket = await getTicketById(ticketId.id);
   if (ticket[0] == null) {
-    console.log("kan inte");
+    console.log("Can not find ticket");
     resObj.exists = false;
   } else if (ticket[0].type == 'ticket' && ticket[0].verified == false) {
-    console.log("uppdaterar")
+    console.log("Updates ticket verified")
     resObj.success = true;
     updateVerified(ticketId.id);
   } else if (ticket[0].type == 'ticket' && ticket[0].verified == true) {
-    console.log(" verified");
+    console.log("Ticket is already verified");
     resObj.used = true;
   }
 
   response.json(resObj);
 });
 
-app.get('/staff/get-conserts', async (request, response) => {
-  const conserts  = await getConserts();
+app.get('/api/get-conserts', async (request, response) => {
+  const conserts = await getConserts();
 
   const resObj = {
     conserts: ""
   }
-  resObj.conserts  = conserts[0]
+  resObj.conserts = conserts[0]
   response.json(resObj);
 });
 

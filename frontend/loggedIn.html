@@ -5,36 +5,26 @@
   <link href='http://fonts.googleapis.com/css?family=Sansita+One' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Fira+Sans' rel='stylesheet' type='text/css'>
   <meta charset="utf-8">
-  <link rel="stylesheet" type="text/css" href="loggedin.css" />
+  <link rel="stylesheet" type="text/css" href="style/loggedin.css" />
   <title>Verify ticket</title>
 </head>
 
 <body>
   <div id="container">
-  
-       
-      <section class="logo">
-          <img src="images/logo.png" alt="logo">
-          <h1 class ="h1" >Where it's@</h1>
-      </section>
-      <section class="staff-forminput">
-         <h2 class="staff-h2">STAFF</h2>
-          <section class="form-input">
-              <input type="text" placeholder="Biljett nummer" id="ticketNumber">
-          </section>
-          <button id="verifybutt">Verify ticket</button>
-      </section>
-  
-     
-      </section>
-  
 
-      <script src="loggedIn.js"></script>
- 
+    <img src="images/logo.png" alt="Logo" id="logo">
+    <h1>Where It’s @</h1>
+    <h2>Staff</h2>
+
+    <input type="text" id="ticket-id" placeholder="Biljett nummer" style="display:none">
+
+    <button type="button" id="verify-ticket" style="display:none">Verify ticket</button>
+
+    <h3 id="verify-p"></p>
+  </div>
+  <script src="loggedIn.js"></script>
 
 </body>
-
-
 
 
 </html>

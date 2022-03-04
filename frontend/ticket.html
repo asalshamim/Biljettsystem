@@ -6,7 +6,7 @@
   <link href='http://fonts.googleapis.com/css?family=Fira+Sans' rel='stylesheet' type='text/css'>
   <link href="https://fonts.googleapis.com/css2?family=Libre+Barcode+128&display=swap" rel="stylesheet" type='text/css'>
   <meta charset="utf-8">
-  <link rel="stylesheet" type="text/css" href="ticket.css" />
+  <link rel="stylesheet" type="text/css" href="style/ticket.css" />
   <title>Ticket</title>
 </head>
 
@@ -16,36 +16,36 @@
 
     <div id="ticket">
 
-      <div id="what">
+      <div id="titleDiv">
         <h5>WHAT</h5>
         <h1 id="title"></h1>
       </div>
 
-      <div id="location1">
+      <div id="locationDiv">
         <h5>WHERE</h5>
         <p id="location"></p>
       </div>
 
-      <div id="time">
+      <div id="dateTimeDiv">
 
         <div id="dateDiv">
           <h5>WHEN</h5>
           <p id="date"></p>
         </div>
 
-        <div id="from">
+        <div id="fromDiv">
           <h5>FROM</h5>
           <p id="timeFrom"></p>
         </div>
 
-        <div id="to">
+        <div id="toDiv">
           <h5>TO</h5>
           <p id="timeTo"></p>
         </div>
 
       </div>
 
-      <div id="barcodeCode">
+      <div id="barcodeDiv">
         <p id="barcode">A2ED7</p>
         <p id="ticketId"></p>
       </div>
@@ -53,8 +53,9 @@
     </div>
 
   </div>
+  <script src="ticket.js"></script>
 
 </body>
-<script src="ticket.js"></script>
+
 
 </html>

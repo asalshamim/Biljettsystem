@@ -1,10 +1,5 @@
 const nedb = require('nedb-promise');
-const database = new nedb({
-  filename: 'tickets.db',
-  autoload: true
-});
-
-// List of events
+const database = new nedb({ filename: 'tickets.db', autoload: true});
 
 const conserts = {
   "type": "consert-list",
