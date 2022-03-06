@@ -34,9 +34,9 @@ async function checkTicket(ticketId) {
   if (data.success) {
     textElem.innerHTML = "Ticket is validated";
   } else if (data.used) {
-    textElem.innerHTML = "Ticket already verified";
+    textElem.innerHTML = "Ticket is already verified";
   } else if (data.exists === false) {
-    textElem.innerHTML = "ticket dose not exists"
+    textElem.innerHTML = "The ticket did not match "
   }
 }
 
